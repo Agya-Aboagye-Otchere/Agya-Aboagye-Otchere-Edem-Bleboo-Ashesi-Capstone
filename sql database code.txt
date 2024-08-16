@@ -1,0 +1,77 @@
+CREATE TABLE Smart_devices (
+    esp_ID INT AUTO_INCREMENT PRIMARY KEY,
+    device_name VARCHAR(255)
+);
+
+
+
+CREATE TABLE Sensor_readings (
+    esp_ID INT,
+    parameter_name VARCHAR(30),
+    parameter_value FLOAT,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+CREATE TABLE images (
+  esp_ID INT,
+  image BLOB
+  reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+CREATE TABLE ml_data (
+    esp_ID INT,
+    ml_results TEXT NOT NULL,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES smart_devices(esp_ID)
+);
+
+CREATE TABLE fft_images (
+  esp_ID INT,
+  image BLOB,
+  reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+CREATE TABLE ml_images (
+  esp_ID INT,
+  image BLOB,
+  reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+
+CREATE TABLE vibration (
+    esp_ID INT,
+    ax FLOAT,
+    ay FLOAT,
+    az FLOAT,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES vibration(esp_ID)
+);
+
+CREATE TABLE voltage (
+    esp_ID INT,
+    V FLOAT,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+CREATE TABLE current_read (
+    esp_ID INT,
+    C FLOAT,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+
+CREATE TABLE speed (
+    esp_ID INT,
+    S FLOAT,
+    reading_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esp_ID) REFERENCES Smart_devices(esp_ID)
+);
+
+
+
