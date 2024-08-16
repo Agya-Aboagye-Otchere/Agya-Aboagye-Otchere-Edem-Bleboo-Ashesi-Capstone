@@ -1,1 +1,1 @@
-# Agya-Aboagye-Otchere-Edem-Bleboo-Ashesi-Capstone
+# Condition Monitoring of Electrical Machines Using IoT
